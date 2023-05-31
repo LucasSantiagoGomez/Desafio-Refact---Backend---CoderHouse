@@ -17,8 +17,11 @@ router.post(
 
 router.post("/login", passport.authenticate("login"), async (req, res) => {
   if (!req.user)
+  
+ 
     return res.status(401).send({ status: "error", error: "Unauthorized" });
-
+  
+   
   req.user.email === "adminCoder@coder.com"
     ? (req.user.role = "admin")
     : (req.user.role = "user");
